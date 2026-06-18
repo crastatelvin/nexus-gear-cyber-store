@@ -3,9 +3,182 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXUS GEAR | Loading...</title>
+  <title>NEXUS GEAR | High-Tech Cybernetic Shop</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <div id="app">Loading Nexus Gear...</div>
+
+  <!-- Background Ambient Glows -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- Header Navigation -->
+  <header class="main-header">
+    <div class="header-container">
+      <a href="#/" class="logo">
+        <span class="logo-icon"><i data-lucide="shield-alert"></i></span>
+        <span class="logo-text">NEXUS <span class="accent-text">GEAR</span></span>
+      </a>
+
+      <!-- Search Bar -->
+      <div class="search-wrapper">
+        <i data-lucide="search" class="search-icon"></i>
+        <input type="text" id="search-input" placeholder="Search cybernetic gear..." autocomplete="off">
+        <button id="search-clear-btn" class="search-clear-btn hidden"><i data-lucide="x"></i></button>
+      </div>
+
+      <!-- Actions -->
+      <div class="nav-actions">
+        <!-- Auth state container -->
+        <div id="auth-nav-container">
+          <button id="nav-login-btn" class="btn btn-outline btn-sm">
+            <i data-lucide="log-in"></i><span>Sign In</span>
+          </button>
+        </div>
+
+        <!-- Cart Trigger -->
+        <button id="nav-cart-btn" class="cart-trigger-btn">
+          <i data-lucide="shopping-bag"></i>
+          <span class="cart-badge" id="cart-badge-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category Nav Bar -->
+  <nav class="category-nav">
+    <div class="category-container">
+      <button class="category-btn active" data-category="">All Systems</button>
+      <button class="category-btn" data-category="Wearables">Wearables</button>
+      <button class="category-btn" data-category="Audio">Audio</button>
+      <button class="category-btn" data-category="Storage">Storage</button>
+      <button class="category-btn" data-category="Peripherals">Peripherals</button>
+      <button class="category-btn" data-category="Gear">Gear</button>
+    </div>
+  </nav>
+
+  <!-- Main View Area -->
+  <main id="main-content" class="main-content-area">
+    <!-- Views will be dynamically injected here by app.js -->
+  </main>
+
+  <!-- Shopping Cart Drawer Overlay -->
+  <div class="overlay" id="cart-overlay"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="cart-drawer-header">
+      <h3><i data-lucide="shopping-cart"></i> Cart System</h3>
+      <button class="close-btn" id="cart-close-btn"><i data-lucide="x"></i></button>
+    </div>
+    
+    <!-- Cart Items -->
+    <div class="cart-drawer-content" id="cart-drawer-items">
+      <!-- Injected by cart.js -->
+      <div class="empty-cart-state">
+        <i data-lucide="package-open"></i>
+        <p>No active items detected in cart.</p>
+        <a href="#/" class="btn btn-primary btn-sm mt-4" id="cart-empty-shop-btn">Browse Shop</a>
+      </div>
+    </div>
+
+    <!-- Cart Footer Summary -->
+    <div class="cart-drawer-footer" id="cart-drawer-footer">
+      <div class="cart-total-row">
+        <span>Subtotal</span>
+        <span class="cart-total-price" id="cart-subtotal">$0.00</span>
+      </div>
+      <p class="cart-tax-notice">Shipping and credits computed at checkout.</p>
+      <button class="btn btn-primary btn-block mt-4" id="cart-checkout-btn">
+        <span>Initialize Checkout</span><i data-lucide="arrow-right"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- Product Detail Modal -->
+  <div class="modal-overlay" id="product-modal">
+    <div class="modal-container">
+      <button class="modal-close" id="product-modal-close"><i data-lucide="x"></i></button>
+      <div class="modal-content" id="product-modal-content">
+        <!-- Injected by app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- User Auth Modal (Login / Register) -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-container auth-modal-container">
+      <button class="modal-close" id="auth-modal-close"><i data-lucide="x"></i></button>
+      
+      <!-- Login View -->
+      <div class="auth-view" id="login-view">
+        <div class="auth-header">
+          <h2>Access Protocol</h2>
+          <p>Provide credentials to establish user session.</p>
+        </div>
+        <form id="login-form" class="auth-form">
+          <div class="form-group">
+            <label for="login-email">Email or Username</label>
+            <input type="text" id="login-email" required placeholder="name@domain.com or username">
+          </div>
+          <div class="form-group">
+            <label for="login-password">Access Code (Password)</label>
+            <input type="password" id="login-password" required placeholder="••••••••">
+          </div>
+          <div class="error-msg hidden" id="login-error"></div>
+          <button type="submit" class="btn btn-primary btn-block mt-2">
+            <span>Establish Connection</span><i data-lucide="shield-check"></i>
+          </button>
+        </form>
+        <p class="auth-switch">New operative? <a href="#" id="switch-to-register">Register Profile</a></p>
+      </div>
+
+      <!-- Register View -->
+      <div class="auth-view hidden" id="register-view">
+        <div class="auth-header">
+          <h2>Registration Protocol</h2>
+          <p>Establish a new operative profile in the system.</p>
+        </div>
+        <form id="register-form" class="auth-form">
+          <div class="form-group">
+            <label for="register-username">Username</label>
+            <input type="text" id="register-username" required placeholder="e.g. cyber_operative">
+          </div>
+          <div class="form-group">
+            <label for="register-email">Email Address</label>
+            <input type="email" id="register-email" required placeholder="name@domain.com">
+          </div>
+          <div class="form-group">
+            <label for="register-password">Access Code (Password)</label>
+            <input type="password" id="register-password" required placeholder="••••••••">
+          </div>
+          <div class="error-msg hidden" id="register-error"></div>
+          <button type="submit" class="btn btn-primary btn-block mt-2">
+            <span>Provision Profile</span><i data-lucide="user-plus"></i>
+          </button>
+        </form>
+        <p class="auth-switch">Already provisioned? <a href="#" id="switch-to-login">Sign In</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-container">
+      <p>&copy; 2026 NEXUS GEAR INC. All privileges reserved. Secure access console v1.0.0.</p>
+      <div class="footer-links">
+        <span class="secure-badge"><i data-lucide="shield"></i> Encrypted Session</span>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>
