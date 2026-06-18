@@ -111,7 +111,7 @@ Users can:
 ┌───────────────────────────────────────────────────────────────────┐
 │                         NEXUS GEAR SPA UI                         │
 │                                                                   │
-│  Home View ──► Details Modal ──► Cart Drawer ──► Checkout Form     │
+│  Home View ──► Details Modal ──► Cart Drawer ──► Checkout Form    │
 │      │              │               │                 │           │
 │      └────── GET /products ◄────────┴────────── POST /orders      │
 │                                                                   │
@@ -286,7 +286,7 @@ This project is licensed under the MIT License.
 
 <div align="center">
 
-Built by Antigravity · Premium E-Commerce Platform · Live Today
+Built by Telvin Crasta · Premium E-Commerce Platform · Live Today
 
 ⭐ If NEXUS GEAR helped you design slick glassmorphic apps, star the repo.
 
