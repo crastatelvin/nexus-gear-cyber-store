@@ -3,6 +3,8 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const productRoutes = require('./routes/productRoutes');
+const authRoutes = require('./routes/authRoutes');
+const orderRoutes = require('./routes/orderRoutes');
 
 const app = express();
 
@@ -18,6 +20,8 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 // Mount API routes
 app.use('/api/products', productRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/orders', orderRoutes);
 
 // Fallback for SPA routing (serve index.html for frontend routes)
 app.get('*', (req, res, next) => {
