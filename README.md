@@ -55,15 +55,39 @@ Users can:
 
 ---
 
-## 🖼️ Product Preview
+## 🖼️ Application Preview
 
-AI-generated futuristic accessories in the store:
-1. **Aegis HUD Glasses**: Futuristic AR glasses with neon glowing HUD highlights.
-2. **NeuroLink Headset**: Cybersecurity headphones featuring neural interface electrodes.
-3. **Quantum Drive 2TB**: Sci-fi sub-atomic storage with circuit-board lighting.
-4. **Chrono Core Watch**: Holographic smartwatch equipped with bio-sensor grids.
-5. **Vapor Keypad V2**: Hot-swappable mechanical macro macropad.
-6. **Aero Pack One**: Tactical Cordura modular backpack with solar charging panel.
+<div align="center">
+
+### 1) Storefront Landing Grid
+
+![Storefront Landing Page](docs/screenshots/01-landing-page.png)
+
+<br/>
+
+### 2) Detailed Product Inspection Modal
+
+![Detailed Product Inspection Modal](docs/screenshots/02-details-modal.png)
+
+<br/>
+
+### 3) Interactive Cart Drawer
+
+![Interactive Cart Drawer](docs/screenshots/03-cart-drawer.png)
+
+<br/>
+
+### 4) Operative Profile and Order History
+
+![Operative Profile and Order History](docs/screenshots/04-profile-orders.png)
+
+<br/>
+
+### 5) Administrative Dashboard Table
+
+![Administrative Dashboard Table](docs/screenshots/05-admin-console.png)
+
+</div>
 
 ---
 
