@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="public/images/nexus-gear-logo.png" alt="NEXUS GEAR logo" width="180"/>
+
 # ⚙️ NEXUS GEAR
 
 ### Futuristic Cybernetic Storefront — Thematic Glassmorphism SPA with SQLite & Node Backend
